@@ -1,0 +1,25 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Killers of the Flower Moon",
+      "director": "Martin Scorcese",
+      "runtime": 3.26,
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "title": "Astrerod City",
+      "director": "Wes Anderson",
+      "runtime": 1.45,
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "title": "The Whale",
+      "director": "Darren Aronofsky",
+      "runtime": 1.57,
+      "rating": 5
+    }
+  ]
+}
