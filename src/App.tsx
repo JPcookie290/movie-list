@@ -1,4 +1,4 @@
-import MovieList from "./components/MOvieList.container";
+import MovieList from "./components/MovieList.container";
 
 function App() {
   return (

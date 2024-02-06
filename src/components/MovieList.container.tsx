@@ -6,11 +6,11 @@ export default function MovieListContainer() {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [err, setErr] = useState<Error | null>(null);
 
-  const options = {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  };
   useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
     (async () => {
       try {
         const data = await fetch(`/movies`, options);
