@@ -5,3 +5,8 @@ export interface IMovie {
   runtime: number;
   rating: number;
 }
+
+export type MovieInput = Omit<IMovie, "id" | "rating"> & {
+  id?: number;
+  rating?: number;
+};
