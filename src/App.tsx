@@ -1,25 +1,21 @@
 import "./App.css";
+import { Typography } from "@mui/material";
 import MovieList from "./components/MovieList";
 import MovieProvider from "./components/MoviesProvider";
-import FormEdit from "./components/FormEdit";
 
 function App() {
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Movie List</h1>
+      <Typography
+        variant="h3"
+        component="h1"
+        sx={{ textAlign: "center", mt: 3, mb: 3 }}
+      >
+        Movie List
+      </Typography>
       <MovieProvider>
         <MovieList />
       </MovieProvider>
-      <FormEdit
-        onSave={(movie) => console.log(movie)}
-        editMovie={{
-          id: 9,
-          title: "Best Film ever",
-          director: "Best director ever",
-          runtime: 300,
-          rating: 5,
-        }}
-      ></FormEdit>
     </>
   );
 }
