@@ -1,0 +1,53 @@
+.inputMovieForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+  flex-direction: column;
+}
+form {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+form label {
+  width: 100%;
+}
+input[type="text"],
+input[type="number"] {
+  padding: 5px 0;
+  border: none;
+  border-bottom: 2px #e7b917 solid;
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+  font-size: 1.3rem;
+  color: gray;
+}
+input::placeholder {
+  color: #e7b917;
+}
+.saveBtn {
+  margin: 15px;
+  padding: 5px 20px;
+  font-size: 1.3rem;
+  background-color: #e7b917;
+  color: black;
+  border: solid 2px black;
+  border-radius: 5px;
+  font-weight: lighter;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  &:hover {
+    background-color: black;
+    color: #e7b917;
+    border-color: #e7b917;
+  }
+}
+input.error {
+  background-color: lightpink;
+  &::placeholder {
+    color: gray;
+  }
+}
+.error {
+  color: red;
+}
