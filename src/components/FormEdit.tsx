@@ -48,6 +48,7 @@ export default function FormEdit({
               {...register("title")}
               error={!!errors.title}
               label="Title"
+              sx={{ mb: 2 }}
             />
             {errors.title && <div>{errors.title.message}</div>}
           </div>
@@ -56,6 +57,7 @@ export default function FormEdit({
               {...register("director")}
               error={!!errors.director}
               label="Director"
+              sx={{ mb: 2 }}
             />
             {errors.director && <div>{errors.director.message}</div>}
           </div>

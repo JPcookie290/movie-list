@@ -22,10 +22,37 @@
       "rating": 5
     },
     {
-      "id": "ef6a",
-      "runtime": 176,
+      "runtime": 1.76,
       "director": "Denis Villeneuve",
-      "title": "Dune: Part One"
+      "title": "Dune: Part One",
+      "id": "ef6a"
+    },
+    {
+      "id": "1qxg4pziad0i",
+      "runtime": 1.27,
+      "director": "Bully Herbig",
+      "title": "Schuh des Manitu"
+    },
+    {
+      "runtime": 1.54,
+      "director": "Greta Gerwig",
+      "title": "The Barbie Movie",
+      "id": "cc2r7dcrr86",
+      "rating": 3
+    },
+    {
+      "id": "mupupujisja",
+      "runtime": 1.48,
+      "director": " George Miller",
+      "title": "Happy Feet",
+      "rating": 3
+    },
+    {
+      "id": "20hbi97cglx",
+      "runtime": 1.8,
+      "director": "Christopher Nolan",
+      "title": "Oppenheimer",
+      "rating": 3
     }
   ]
 }

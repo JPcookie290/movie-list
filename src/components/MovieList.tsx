@@ -8,16 +8,19 @@ import { useState } from "react";
 import DeleteDialog from "./DeleteDialog";
 
 export default function MovieList() {
-  const [movies, err, handleDelete, handleSubmit] = useMovies();
+  const [movies, err, handleDelete, handleAdd] = useMovies();
   const [filter, setFilter] = useState("");
   const [deleteDialog, setDeleteDialog] = useState<{
     open: boolean;
     movie: IMovie | null;
   }>({ open: false, movie: null });
+
   const [formDialog, setFormDialog] = useState<{
     open: boolean;
+    edited?: boolean;
     movie?: IMovie;
   }>({ open: false });
+
   const handleDialog = (open: boolean, movie: IMovie) => {
     if (open) {
       setDeleteDialog({ open: true, movie });
@@ -79,8 +82,13 @@ export default function MovieList() {
           ></DeleteDialog>
           <FormEdit
             onSave={(movie: MovieInput) => {
-              setFormDialog({ open: false, movie: undefined });
-              (handleSubmit as (movie: MovieInput) => Promise<void>)(movie);
+              setFormDialog({ open: false, movie: undefined, edited: true });
+              (
+                handleAdd as (
+                  movie: MovieInput,
+                  edited: boolean
+                ) => Promise<void>
+              )(movie, formDialog.edited!);
             }}
             open={formDialog.open}
             onClose={() => setFormDialog({ open: false, movie: undefined })}
@@ -88,7 +96,9 @@ export default function MovieList() {
           />
           <Fab
             color="primary"
-            onClick={() => setFormDialog({ open: true, movie: undefined })}
+            onClick={() =>
+              setFormDialog({ open: true, movie: undefined, edited: false })
+            }
             sx={{
               position: "fixed",
               right: "50%",

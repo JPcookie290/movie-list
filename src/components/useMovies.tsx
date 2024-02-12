@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { IMovie } from "../ts/interfaces/global_interface";
+import { IMovie, MovieInput } from "../ts/interfaces/global_interface";
 import MovieContext from "../utils/MovieContext";
 
 export default function useMovies() {
@@ -26,7 +26,6 @@ export default function useMovies() {
       method: "DELETE",
     };
     const res = await fetch(`/movies/${movie.id}`, options);
-    console.log(res);
 
     if (res.ok) {
       setMovies((prevMovie) =>
@@ -34,13 +33,20 @@ export default function useMovies() {
       );
     }
   }
-  async function handleAdd(movie: IMovie): Promise<void> {
+  async function handleAdd(
+    movie: MovieInput,
+    edited: boolean = true
+  ): Promise<void> {
     //json-server creates automatic ids if the object is missing one
+
     let method = "POST";
     let url = "/movies";
-    if (movie.id) {
+
+    if (edited) {
       method = "PUT";
       url += `/${movie.id}`;
+    } else {
+      movie.id = Math.random().toString(36).replace("0.", "");
     }
     const options = {
       method,
@@ -49,10 +55,12 @@ export default function useMovies() {
     };
     const res = await fetch(url, options);
     const data = await res.json();
-    if (movie.id) {
+    console.log(data);
+    if (edited) {
       setMovies((prevMovies) =>
         prevMovies?.map((prevMovie) => {
           if (prevMovie.id === movie.id) {
+            console.log(data);
             return data;
           }
           return prevMovie;

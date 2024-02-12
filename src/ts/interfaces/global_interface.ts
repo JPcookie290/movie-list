@@ -1,5 +1,5 @@
 export interface IMovie {
-  id: number;
+  id: string;
   title: string;
   director: string;
   runtime: number;
@@ -7,6 +7,6 @@ export interface IMovie {
 }
 
 export type MovieInput = Omit<IMovie, "id" | "rating"> & {
-  id?: number;
+  id?: string;
   rating?: number;
 };
