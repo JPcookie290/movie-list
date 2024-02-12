@@ -88,7 +88,7 @@ export default function MovieList() {
           />
           <Fab
             color="primary"
-            onClick={() => setFormDialog({ open: false, movie: undefined })}
+            onClick={() => setFormDialog({ open: true, movie: undefined })}
             sx={{
               position: "fixed",
               right: "50%",
